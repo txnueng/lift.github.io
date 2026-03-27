@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STUDY & LIFE — Apr–Aug 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f5f0;
+    --gray-100: #e8e8e4;
+    --gray-200: #d0d0cc;
+    --gray-400: #8a8a88;
+    --gray-600: #4a4a48;
+    --gray-800: #1e1e1c;
+    --accent: #0a0a0a;
+    --border: 1.5px solid #0a0a0a;
+    --r: 2px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans Thai', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    min-height: 100vh;
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 6px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SIDEBAR */
+  .app-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: calc(100vh - 32px);
+  }
+
+  .sidebar {
+    background: var(--black);
+    color: var(--white);
+    position: sticky;
+    top: 32px;
+    height: calc(100vh - 32px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .sidebar-logo {
+    padding: 28px 20px 24px;
+    border-bottom: 1px solid #2a2a28;
+  }
+  .sidebar-logo h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .sidebar-logo .sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--gray-400);
+    letter-spacing: 0.12em;
+    margin-top: 6px;
+  }
+
+  .sidebar-progress {
+    padding: 18px 20px;
+    border-bottom: 1px solid #2a2a28;
+  }
+  .progress-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--gray-400);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .progress-bar {
+    height: 3px;
+    background: #2a2a28;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--white);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+  .progress-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gray-400);
+    margin-top: 5px;
+    text-align: right;
+  }
+
+  .sidebar-nav {
+    padding: 16px 12px;
+    flex: 1;
+  }
+  .nav-section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    color: var(--gray-600);
+    padding: 0 8px;
+    margin: 12px 0 6px;
+    text-transform: uppercase;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--gray-400);
+    transition: all 0.15s;
+    font-family: 'Noto Sans Thai', sans-serif;
+  }
+  .nav-item:hover { background: #1e1e1c; color: var(--white); }
+  .nav-item.active { background: var(--white); color: var(--black); }
+  .nav-item .icon { font-size: 15px; width: 18px; text-align: center; }
+  .nav-item .badge {
+    margin-left: auto;
+    background: #333;
+    font-size: 9px;
+    font-family: 'Space Mono', monospace;
+    padding: 1px 6px;
+    border-radius: 10px;
+    color: var(--gray-400);
+  }
+  .nav-item.active .badge { background: var(--black); color: var(--white); }
+
+  .sidebar-quote {
+    padding: 16px 20px;
+    border-top: 1px solid #2a2a28;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: #3a3a38;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* MAIN */
+  .main-content {
+    min-height: calc(100vh - 32px);
+    background: var(--white);
+  }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 32px 36px 0;
+    border-bottom: var(--border);
+    margin-bottom: 0;
+  }
+  .page-header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .page-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gray-400);
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  /* TABS */
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    margin-top: 0;
+  }
+  .tab-btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 10px 18px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--gray-400);
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: var(--black); }
+  .tab-btn.active { color: var(--black); border-bottom: 2px solid var(--black); }
+
+  /* CONTENT AREA */
+  .content-area { padding: 28px 36px; }
+
+  /* CARDS */
+  .card {
+    border: var(--border);
+    border-radius: var(--r);
+    background: var(--white);
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 14px;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stat-card {
+    border: var(--border);
+    padding: 16px;
+    border-radius: var(--r);
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--black);
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--gray-400);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* TODO */
+  .todo-add {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .todo-input {
+    flex: 1;
+    border: var(--border);
+    padding: 9px 14px;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 13px;
+    background: var(--white);
+    border-radius: var(--r);
+    outline: none;
+    transition: box-shadow 0.2s;
+  }
+  .todo-input:focus { box-shadow: 0 0 0 3px rgba(0,0,0,0.08); }
+  .todo-select {
+    border: var(--border);
+    padding: 9px 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    background: var(--white);
+    border-radius: var(--r);
+    cursor: pointer;
+    outline: none;
+  }
+  .btn {
+    border: var(--border);
+    padding: 9px 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    border-radius: var(--r);
+    background: var(--black);
+    color: var(--white);
+    transition: all 0.15s;
+  }
+  .btn:hover { opacity: 0.8; }
+  .btn-outline {
+    background: var(--white);
+    color: var(--black);
+  }
+  .btn-outline:hover { background: var(--black); color: var(--white); }
+  .btn-sm { padding: 5px 12px; font-size: 9px; }
+
+  .todo-filter-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .filter-chip {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border: var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    background: var(--white);
+    transition: all 0.15s;
+    text-transform: uppercase;
+  }
+  .filter-chip.active { background: var(--black); color: var(--white); }
+
+  .todo-list { list-style: none; }
+  .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border: var(--border);
+    border-radius: var(--r);
+    margin-bottom: 7px;
+    transition: all 0.2s;
+    animation: slideIn 0.25s ease;
+    cursor: default;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .todo-item:hover { box-shadow: 3px 3px 0 var(--black); transform: translate(-1px, -1px); }
+  .todo-item.done { opacity: 0.45; }
+  .todo-item.done .todo-text { text-decoration: line-through; }
+  .todo-check {
+    width: 18px; height: 18px;
+    border: var(--border);
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    font-size: 11px;
+  }
+  .todo-check.checked { background: var(--black); color: var(--white); }
+  .todo-text { flex: 1; font-size: 13px; }
+  .todo-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+  }
+  .tag-study { background: var(--black); color: var(--white); }
+  .tag-exercise { background: var(--gray-200); color: var(--black); }
+  .tag-life { background: var(--gray-100); color: var(--gray-600); }
+  .tag-exam { background: var(--gray-800); color: var(--white); }
+  .todo-delete {
+    opacity: 0;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--gray-400);
+    transition: opacity 0.15s;
+    border: none;
+    background: none;
+    padding: 2px;
+  }
+  .todo-item:hover .todo-delete { opacity: 1; }
+
+  /* CALENDAR */
+  .calendar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .cal-month-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+  }
+  .cal-header {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--gray-400);
+    padding: 10px 0;
+    background: var(--gray-100);
+    text-transform: uppercase;
+    border-bottom: var(--border);
+  }
+  .cal-day {
+    min-height: 80px;
+    padding: 8px;
+    border-right: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .cal-day:hover { background: var(--gray-100); }
+  .cal-day.today { background: var(--black); color: var(--white); }
+  .cal-day.today .cal-day-num { color: var(--white); }
+  .cal-day.other-month { opacity: 0.3; }
+  .cal-day.in-range { background: var(--gray-100); }
+  .cal-day-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-600);
+    margin-bottom: 4px;
+  }
+  .cal-day.today .cal-day-num { color: var(--white); }
+  .cal-event {
+    font-size: 9px;
+    padding: 2px 5px;
+    border-radius: 2px;
+    background: var(--black);
+    color: var(--white);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Noto Sans Thai', sans-serif;
+  }
+  .cal-event.ev-study { background: var(--black); }
+  .cal-event.ev-exercise { background: var(--gray-600); }
+  .cal-event.ev-life { background: var(--gray-400); }
+
+  .cal-add-form {
+    margin-top: 20px;
+    border: var(--border);
+    border-radius: var(--r);
+    padding: 16px;
+    display: none;
+  }
+  .cal-add-form.open { display: block; animation: slideIn 0.2s ease; }
+  .cal-add-form h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--gray-400);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .form-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* NOTES */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 16px;
+    height: calc(100vh - 200px);
+  }
+  .notes-sidebar {
+    border: var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .notes-sidebar-header {
+    padding: 12px 14px;
+    border-bottom: var(--border);
+    background: var(--gray-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .notes-sidebar-header span {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--gray-400);
+    text-transform: uppercase;
+  }
+  .notes-list { overflow-y: auto; flex: 1; }
+  .note-item {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .note-item:hover { background: var(--gray-100); }
+  .note-item.active { background: var(--black); color: var(--white); }
+  .note-item-title {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .note-item-preview {
+    font-size: 10px;
+    color: var(--gray-400);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .note-item.active .note-item-preview { color: var(--gray-200); }
+  .note-item-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    color: var(--gray-400);
+    margin-top: 4px;
+  }
+  .note-item.active .note-item-tag { color: var(--gray-400); }
+
+  .notes-editor { border: var(--border); border-radius: var(--r); display: flex; flex-direction: column; overflow: hidden; }
+  .editor-header {
+    padding: 12px 16px;
+    border-bottom: var(--border);
+    background: var(--gray-100);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .editor-title-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+  }
+  .note-link-input {
+    border: var(--border);
+    padding: 6px 10px;
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+    border-radius: var(--r);
+    background: var(--white);
+    width: 200px;
+    outline: none;
+  }
+  .note-body {
+    flex: 1;
+    padding: 16px;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    border: none;
+    outline: none;
+    resize: none;
+    background: var(--white);
+  }
+  .editor-footer {
+    padding: 8px 16px;
+    border-top: var(--border);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: var(--gray-100);
+  }
+  .editor-footer span {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--gray-400);
+  }
+
+  /* EXERCISE */
+  .exercise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .weight-display {
+    border: var(--border);
+    border-radius: var(--r);
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .weight-display::before {
+    content: 'GOAL';
+    position: absolute;
+    top: 12px; right: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    color: var(--gray-400);
+    letter-spacing: 0.15em;
+  }
+  .weight-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    line-height: 1;
+  }
+  .weight-unit {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .bmi-box {
+    margin-top: 12px;
+    padding: 10px;
+    background: var(--gray-100);
+    border-radius: var(--r);
+  }
+  .bmi-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--gray-400); letter-spacing: 0.1em; }
+  .bmi-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1.2; }
+
+  .exercise-week {
+    border: var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+  }
+  .exercise-week-header {
+    background: var(--black);
+    color: var(--white);
+    padding: 12px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .exercise-day-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    gap: 12px;
+  }
+  .ex-day-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--gray-400);
+    width: 30px;
+    text-transform: uppercase;
+  }
+  .ex-day-bar-wrap { flex: 1; background: var(--gray-100); height: 6px; border-radius: 3px; }
+  .ex-day-bar { height: 100%; background: var(--black); border-radius: 3px; transition: width 0.5s ease; }
+  .ex-day-val { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--gray-400); width: 50px; text-align: right; }
+  .ex-check { cursor: pointer; font-size: 14px; }
+
+  .exercise-log {
+    border: var(--border);
+    border-radius: var(--r);
+    padding: 16px;
+    grid-column: 1 / -1;
+  }
+
+  /* POSN STUDY */
+  .study-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .subject-card {
+    border: var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+  }
+  .subject-header {
+    background: var(--black);
+    color: var(--white);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .subject-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.04em; }
+  .subject-header .sub-sub { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--gray-400); letter-spacing: 0.1em; }
+  .subject-progress-bar { height: 3px; background: #2a2a28; }
+  .subject-progress-fill { height: 100%; background: var(--white); transition: width 0.5s; }
+  .topic-list { padding: 12px 16px; }
+  .topic-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .topic-item:last-child { border-bottom: none; }
+  .topic-check {
+    width: 14px; height: 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .topic-check.done { background: var(--black); border-color: var(--black); color: var(--white); }
+  .topic-text { flex: 1; }
+  .topic-text.done { text-decoration: line-through; color: var(--gray-400); }
+  .topic-level {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    color: var(--gray-400);
+    flex-shrink: 0;
+  }
+
+  /* FOCUS TIMER */
+  .focus-section {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    z-index: 999;
+  }
+  .focus-toggle {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s;
+  }
+  .focus-toggle:hover { transform: scale(1.08); }
+  .focus-panel {
+    position: absolute;
+    bottom: 58px; right: 0;
+    width: 200px;
+    background: var(--black);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    animation: slideIn 0.2s ease;
+  }
+  .focus-panel.open { display: block; }
+  .focus-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .focus-controls { display: flex; gap: 8px; justify-content: center; }
+  .focus-btn {
+    flex: 1;
+    padding: 7px;
+    border: 1px solid #3a3a38;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.15s;
+    letter-spacing: 0.08em;
+  }
+  .focus-btn:hover { background: var(--white); color: var(--black); }
+  .focus-mode {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  .focus-mode-btn {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #3a3a38;
+    background: transparent;
+    color: var(--gray-400);
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: center;
+    transition: all 0.15s;
+  }
+  .focus-mode-btn.active { background: var(--white); color: var(--black); }
+
+  /* WEATHER / QUOTE WIDGET */
+  .dashboard-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .quote-box {
+    border: var(--border);
+    border-radius: var(--r);
+    padding: 20px;
+    background: var(--black);
+    color: var(--white);
+    grid-column: span 2;
+  }
+  .quote-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .quote-author { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--gray-400); }
+
+  .countdown-box {
+    border: var(--border);
+    border-radius: var(--r);
+    padding: 20px;
+    text-align: center;
+  }
+  .countdown-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--gray-400);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .countdown-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .countdown-sub { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--gray-400); }
+
+  /* HABIT TRACKER */
+  .habit-grid-wrap { overflow-x: auto; }
+  .habit-grid {
+    display: grid;
+    gap: 4px;
+    min-width: 600px;
+  }
+  .habit-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .habit-name {
+    width: 120px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+    color: var(--gray-600);
+    font-family: 'Noto Sans Thai', sans-serif;
+  }
+  .habit-cell {
+    width: 22px; height: 22px;
+    border: 1.5px solid var(--gray-100);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+    flex-shrink: 0;
+    font-size: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .habit-cell:hover { border-color: var(--gray-400); }
+  .habit-cell.done { background: var(--black); border-color: var(--black); }
+  .habit-header-row { display: flex; align-items: center; gap: 4px; margin-bottom: 6px; }
+  .habit-date-label {
+    width: 22px;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px;
+    color: var(--gray-400);
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .habit-name-header { width: 120px; flex-shrink: 0; }
+
+  /* Water tracker */
+  .water-tracker { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .water-cup {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.15s;
+    filter: grayscale(1);
+    opacity: 0.3;
+  }
+  .water-cup.filled { filter: grayscale(0); opacity: 1; }
+  .water-cup:hover { transform: scale(1.2); }
+
+  /* RESPONSIVE FLEX */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--gray-200); border-radius: 10px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .page.active { animation: fadeIn 0.2s ease; }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--gray-400);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  select { cursor: pointer; }
+</style>
+</head>
+<body>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <span class="marquee-inner">
+    ✦ STUDY & LIFE PLANNER ✦ สอวน. คอมพิวเตอร์ ✦ 1 APR – 30 AUG 2025 ✦ ปัญญาเกิดจากการฝึกฝน ✦ KEEP PUSHING ✦ วิทยาการคำนวณ ✦ คณิตศาสตร์ ✦ TRACK YOUR PROGRESS ✦ STAY CONSISTENT ✦ ทำทีละนิดทุกวัน ✦ STUDY & LIFE PLANNER ✦ สอวน. คอมพิวเตอร์ ✦ 1 APR – 30 AUG 2025 ✦ ปัญญาเกิดจากการฝึกฝน ✦ KEEP PUSHING ✦ วิทยาการคำนวณ ✦ คณิตศาสตร์ ✦ TRACK YOUR PROGRESS ✦ STAY CONSISTENT ✦ ทำทีละนิดทุกวัน ✦&nbsp;
+  </span>
+</div>
+
+<div class="app-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h1>STUDY<br>& LIFE</h1>
+      <div class="sub">APR — AUG 2025</div>
+    </div>
+
+    <div class="sidebar-progress">
+      <div class="progress-label">PERIOD PROGRESS</div>
+      <div class="progress-bar"><div class="progress-fill" id="periodProgress" style="width:0%"></div></div>
+      <div class="progress-text" id="periodText">0%</div>
+    </div>
+
+    <div class="sidebar-nav">
+      <div class="nav-section-title">MAIN</div>
+      <div class="nav-item active" onclick="showPage('dashboard')">
+        <span class="icon">⬛</span> Dashboard
+        <span class="badge" id="badge-dash">—</span>
+      </div>
+      <div class="nav-item" onclick="showPage('todo')">
+        <span class="icon">☑</span> To-Do List
+        <span class="badge" id="badge-todo">0</span>
+      </div>
+      <div class="nav-item" onclick="showPage('calendar')">
+        <span class="icon">◫</span> ปฏิทิน
+      </div>
+      <div class="nav-section-title">STUDY</div>
+      <div class="nav-item" onclick="showPage('posn')">
+        <span class="icon">◈</span> สอวน. คอม
+      </div>
+      <div class="nav-item" onclick="showPage('notes')">
+        <span class="icon">▤</span> บันทึก
+        <span class="badge" id="badge-notes">0</span>
+      </div>
+      <div class="nav-section-title">HEALTH</div>
+      <div class="nav-item" onclick="showPage('exercise')">
+        <span class="icon">◉</span> ออกกำลังกาย
+      </div>
+      <div class="nav-item" onclick="showPage('habit')">
+        <span class="icon">◻</span> Habit Tracker
+      </div>
+    </div>
+
+    <div class="sidebar-quote" id="sidebarQuote">
+      "ความสำเร็จไม่ได้มาเอง<br>แต่มาจากการกระทำซ้ำๆ<br>ทุกวัน"
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- DASHBOARD -->
+    <div id="page-dashboard" class="page active">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div>
+            <div class="page-title">DASHBOARD</div>
+            <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--gray-400);margin-top:4px;" id="todayDateDisplay"></div>
+          </div>
+          <div class="page-date" id="clockDisplay"></div>
+        </div>
+      </div>
+      <div class="content-area">
+
+        <div class="dashboard-top">
+          <div class="quote-box">
+            <div class="quote-text" id="dashQuote">"การเตรียมตัวที่ดีในวันนี้ คือชัยชนะของวันพรุ่งนี้"</div>
+            <div class="quote-author" id="dashQuoteAuthor">— POSN Planner 2025</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-label">DAYS REMAINING</div>
+            <div class="countdown-num" id="daysLeft">—</div>
+            <div class="countdown-sub">until Aug 30</div>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-num" id="stat-todo-done">0</div>
+            <div class="stat-label">Tasks Done</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-todo-left">0</div>
+            <div class="stat-label">Tasks Left</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-topics">0</div>
+            <div class="stat-label">Topics Studied</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" id="stat-notes">0</div>
+            <div class="stat-label">Notes Saved</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-title">TODAY'S TASKS</div>
+            <ul class="todo-list" id="dash-todo-list">
+              <div class="empty-state">ยังไม่มี task — ไปเพิ่มที่ To-Do List</div>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-title">WATER INTAKE (8 แก้ว/วัน)</div>
+            <div class="water-tracker" id="waterTracker"></div>
+            <div style="margin-top:10px;font-family:'Space Mono',monospace;font-size:9px;color:var(--gray-400);" id="waterCount">0 / 8 cups</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">HABIT STREAK TODAY</div>
+          <div id="dash-habit-today" style="display:flex;gap:12px;flex-wrap:wrap;"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TODO -->
+    <div id="page-todo" class="page">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div class="page-title">TO-DO LIST</div>
+        </div>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="filterTodo('all',this)">ALL</button>
+          <button class="tab-btn" onclick="filterTodo('study',this)">STUDY</button>
+          <button class="tab-btn" onclick="filterTodo('exam',this)">EXAM</button>
+          <button class="tab-btn" onclick="filterTodo('exercise',this)">EXERCISE</button>
+          <button class="tab-btn" onclick="filterTodo('life',this)">LIFE</button>
+          <button class="tab-btn" onclick="filterTodo('done',this)">DONE</button>
+        </div>
+      </div>
+      <div class="content-area">
+        <div class="todo-add">
+          <input class="todo-input" id="todoInput" placeholder="เพิ่ม task ใหม่..." onkeydown="if(event.key==='Enter')addTodo()">
+          <select class="todo-select" id="todoTag">
+            <option value="study">Study</option>
+            <option value="exam">Exam</option>
+            <option value="exercise">Exercise</option>
+            <option value="life">Life</option>
+          </select>
+          <select class="todo-select" id="todoPriority">
+            <option value="normal">Normal</option>
+            <option value="high">High</option>
+          </select>
+          <button class="btn" onclick="addTodo()">+ ADD</button>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gray-400);" id="todoCount">0 tasks</div>
+          <button class="btn btn-outline btn-sm" onclick="clearDone()">CLEAR DONE</button>
+        </div>
+        <ul class="todo-list" id="mainTodoList"></ul>
+      </div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div id="page-calendar" class="page">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div class="page-title">CALENDAR</div>
+        </div>
+      </div>
+      <div class="content-area">
+        <div class="calendar-nav">
+          <button class="btn btn-outline btn-sm" onclick="changeMonth(-1)">← PREV</button>
+          <div class="cal-month-title" id="calMonthTitle"></div>
+          <button class="btn btn-outline btn-sm" onclick="changeMonth(1)">NEXT →</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-add-form" id="calAddForm">
+          <h4 id="calAddTitle">ADD EVENT</h4>
+          <div class="form-row">
+            <input class="todo-input" id="calEventName" placeholder="ชื่อกิจกรรม..." style="flex:2">
+            <select class="todo-select" id="calEventType">
+              <option value="ev-study">Study</option>
+              <option value="ev-exercise">Exercise</option>
+              <option value="ev-life">Life</option>
+            </select>
+            <button class="btn btn-sm" onclick="addCalEvent()">ADD</button>
+            <button class="btn btn-outline btn-sm" onclick="closeCalForm()">✕</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POSN STUDY -->
+    <div id="page-posn" class="page">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div class="page-title">สอวน. คอม</div>
+        </div>
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="showPosnTab('cs',this)">COMPUTER SCI</button>
+          <button class="tab-btn" onclick="showPosnTab('math',this)">MATHEMATICS</button>
+        </div>
+      </div>
+      <div class="content-area">
+        <div id="posn-cs" class="study-grid"></div>
+        <div id="posn-math" class="study-grid" style="display:none;"></div>
+      </div>
+    </div>
+
+    <!-- NOTES -->
+    <div id="page-notes" class="page">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div class="page-title">NOTES</div>
+          <button class="btn btn-sm" onclick="addNote()">+ NEW NOTE</button>
+        </div>
+      </div>
+      <div class="content-area" style="padding-top:16px;">
+        <div class="notes-grid">
+          <div class="notes-sidebar">
+            <div class="notes-sidebar-header">
+              <span>ALL NOTES</span>
+              <span id="noteCountDisplay">0</span>
+            </div>
+            <div class="notes-list" id="notesList"></div>
+          </div>
+          <div class="notes-editor">
+            <div class="editor-header">
+              <input class="editor-title-input" id="noteTitleInput" placeholder="หัวข้อบันทึก..." oninput="saveCurrentNote()">
+              <select class="todo-select" id="noteTagSelect" onchange="saveCurrentNote()">
+                <option value="general">General</option>
+                <option value="cs">CS</option>
+                <option value="math">Math</option>
+                <option value="exercise">Exercise</option>
+              </select>
+              <input class="note-link-input" id="noteLinkInput" placeholder="แปะลิงก์..." oninput="saveCurrentNote()">
+            </div>
+            <textarea class="note-body" id="noteBody" placeholder="เริ่มจดบันทึก..." oninput="saveCurrentNote()"></textarea>
+            <div class="editor-footer">
+              <span id="noteWordCount">0 words</span>
+              <span id="noteSavedAt"></span>
+              <div style="margin-left:auto;display:flex;gap:8px;">
+                <button class="btn btn-outline btn-sm" onclick="openNoteLink()">🔗 OPEN LINK</button>
+                <button class="btn btn-sm" style="background:#c0392b;border-color:#c0392b;" onclick="deleteCurrentNote()">DELETE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXERCISE -->
+    <div id="page-exercise" class="page">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div class="page-title">EXERCISE</div>
+        </div>
+      </div>
+      <div class="content-area">
+        <div class="exercise-grid">
+          <div class="weight-display">
+            <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gray-400);letter-spacing:0.12em;margin-bottom:4px;">CURRENT WEIGHT</div>
+            <div style="display:flex;align-items:flex-end;justify-content:center;gap:4px;">
+              <div class="weight-big" id="weightDisplay">60</div>
+              <div class="weight-unit" style="margin-bottom:12px;">kg</div>
+            </div>
+            <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gray-400);margin-bottom:6px;">Height: 170 cm</div>
+            <div class="bmi-box">
+              <div class="bmi-label">BMI</div>
+              <div class="bmi-val" id="bmiDisplay">20.8</div>
+              <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--gray-400);">Normal</div>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px;">
+              <input class="todo-input" id="weightInput" type="number" placeholder="อัปเดตน้ำหนัก (kg)" min="40" max="200" style="flex:1;">
+              <button class="btn btn-sm" onclick="updateWeight()">UPDATE</button>
+            </div>
+          </div>
+
+          <div class="exercise-week">
+            <div class="exercise-week-header">WEEKLY EXERCISE PLAN</div>
+            <div id="exercisePlan"></div>
+          </div>
+
+          <div class="exercise-log card" style="margin-bottom:0;">
+            <div class="card-title">LOG EXERCISE</div>
+            <div class="todo-add" style="margin-bottom:0;">
+              <input class="todo-input" id="exLogInput" placeholder="บันทึกการออกกำลังกายวันนี้...">
+              <select class="todo-select" id="exType">
+                <option>วิ่ง</option>
+                <option>ว่ายน้ำ</option>
+                <option>ยิม</option>
+                <option>Cardio</option>
+                <option>โยคะ</option>
+                <option>อื่นๆ</option>
+              </select>
+              <input class="todo-input" id="exDuration" type="number" placeholder="นาที" style="width:80px;flex:unset;">
+              <button class="btn" onclick="logExercise()">+ LOG</button>
+            </div>
+            <ul class="todo-list" id="exLogList" style="margin-top:14px;"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HABIT -->
+    <div id="page-habit" class="page">
+      <div class="page-header">
+        <div class="page-header-top">
+          <div class="page-title">HABIT TRACKER</div>
+          <div style="display:flex;gap:8px;">
+            <input class="todo-input" id="habitInput" placeholder="เพิ่ม habit..." style="width:180px;" onkeydown="if(event.key==='Enter')addHabit()">
+            <button class="btn btn-sm" onclick="addHabit()">+ ADD</button>
+          </div>
+        </div>
+      </div>
+      <div class="content-area">
+        <div class="card">
+          <div class="card-title">APRIL — AUGUST 2025 (30 days preview)</div>
+          <div class="habit-grid-wrap">
+            <div id="habitGridContainer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOCUS TIMER -->
+<div class="focus-section">
+  <div class="focus-panel" id="focusPanel">
+    <div class="focus-mode">
+      <div class="focus-mode-btn active" onclick="setFocusMode(25,'work',this)">WORK</div>
+      <div class="focus-mode-btn" onclick="setFocusMode(5,'break',this)">BREAK</div>
+      <div class="focus-mode-btn" onclick="setFocusMode(15,'long',this)">LONG</div>
+    </div>
+    <div class="focus-time" id="focusTime">25:00</div>
+    <div class="focus-controls">
+      <button class="focus-btn" id="focusStartBtn" onclick="toggleFocus()">START</button>
+      <button class="focus-btn" onclick="resetFocus()">RESET</button>
+    </div>
+    <div style="margin-top:10px;font-family:'Space Mono',monospace;font-size:9px;color:var(--gray-400);text-align:center;" id="focusSession">Session #1</div>
+  </div>
+  <button class="focus-toggle" onclick="toggleFocusPanel()" title="Pomodoro Timer">⏱</button>
+</div>
+
+<script>
+// ============ STATE ============
+let state = {
+  todos: JSON.parse(localStorage.getItem('todos') || '[]'),
+  notes: JSON.parse(localStorage.getItem('notes') || '[]'),
+  calEvents: JSON.parse(localStorage.getItem('calEvents') || '{}'),
+  water: JSON.parse(localStorage.getItem('water') || '0'),
+  weight: JSON.parse(localStorage.getItem('weight') || '60'),
+  exLogs: JSON.parse(localStorage.getItem('exLogs') || '[]'),
+  habits: JSON.parse(localStorage.getItem('habits') || JSON.stringify(['อ่านหนังสือ','ออกกำลังกาย','ดื่มน้ำ 8 แก้ว','นอนหลับก่อนเที่ยงคืน'])),
+  habitDone: JSON.parse(localStorage.getItem('habitDone') || '{}'),
+  posnProgress: JSON.parse(localStorage.getItem('posnProgress') || '{}'),
+  exPlan: JSON.parse(localStorage.getItem('exPlan') || JSON.stringify({
+    'MON': {name:'วิ่ง 30 นาที + Core', done: false, cal: 250},
+    'TUE': {name:'ยิม Upper Body', done: false, cal: 300},
+    'WED': {name:'โยคะ + Stretching', done: false, cal: 150},
+    'THU': {name:'วิ่ง 40 นาที', done: false, cal: 320},
+    'FRI': {name:'ยิม Lower Body', done: false, cal: 280},
+    'SAT': {name:'Cardio HIIT 20 นาที', done: false, cal: 220},
+    'SUN': {name:'REST / Active Recovery', done: false, cal: 80},
+  })),
+  currentNote: null,
+  calMonth: new Date().getMonth(),
+  calYear: new Date().getFullYear(),
+  currentTodoFilter: 'all',
+};
+
+function save(key) { localStorage.setItem(key, JSON.stringify(state[key])); }
+
+// ============ NAV ============
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if(id === 'dashboard') renderDashboard();
+  if(id === 'todo') renderTodos();
+  if(id === 'calendar') renderCalendar();
+  if(id === 'posn') renderPosn();
+  if(id === 'notes') renderNotes();
+  if(id === 'exercise') renderExercise();
+  if(id === 'habit') renderHabitGrid();
+}
+
+// ============ CLOCK ============
+function updateClock() {
+  const now = new Date();
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+  if(document.getElementById('clockDisplay'))
+    document.getElementById('clockDisplay').innerHTML = `${h}:${m}:${s}<br>${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+  if(document.getElementById('todayDateDisplay'))
+    document.getElementById('todayDateDisplay').textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ============ PERIOD PROGRESS ============
+function updatePeriodProgress() {
+  const start = new Date('2025-04-01');
+  const end = new Date('2025-08-30');
+  const now = new Date();
+  const total = end - start;
+  const elapsed = Math.max(0, Math.min(now - start, total));
+  const pct = Math.round((elapsed / total) * 100);
+  const remaining = Math.max(0, Math.ceil((end - now) / 86400000));
+  if(document.getElementById('periodProgress')) {
+    document.getElementById('periodProgress').style.width = pct + '%';
+    document.getElementById('periodText').textContent = pct + '%';
+  }
+  if(document.getElementById('daysLeft')) document.getElementById('daysLeft').textContent = remaining;
+}
+updatePeriodProgress();
+
+// ============ QUOTES ============
+const quotes = [
+  {q: '"ความสำเร็จไม่ได้มาจากความสามารถ แต่มาจากความพยายาม"', a: '— Einstein'},
+  {q: '"อ่านหนังสือทุกวัน แม้แค่หน้าเดียว ก็สร้างความแตกต่างได้"', a: '— POSN Planner'},
+  {q: '"ทำในสิ่งที่ยากวันนี้ เพื่ออนาคตที่ง่ายกว่า"', a: '— Anonymous'},
+  {q: '"วินัยคือสิ่งที่แยกความฝันออกจากความสำเร็จ"', a: '— Unknown'},
+  {q: '"ทุกผู้เชี่ยวชาญเคยเป็นมือใหม่มาก่อน"', a: '— Anonymous'},
+];
+function randomQuote() {
+  const q = quotes[Math.floor(Math.random() * quotes.length)];
+  document.getElementById('dashQuote').textContent = q.q;
+  document.getElementById('dashQuoteAuthor').textContent = q.a;
+  document.getElementById('sidebarQuote').innerHTML = q.q.replace(/"/g,'') + '<br><span style="color:#3a3a38">' + q.a + '</span>';
+}
+randomQuote();
+
+// ============ TODOS ============
+let todoFilter = 'all';
+function addTodo() {
+  const text = document.getElementById('todoInput').value.trim();
+  if(!text) return;
+  state.todos.unshift({ id: Date.now(), text, tag: document.getElementById('todoTag').value, done: false, priority: document.getElementById('todoPriority').value, date: new Date().toISOString() });
+  save('todos');
+  document.getElementById('todoInput').value = '';
+  renderTodos();
+  updateBadges();
+  renderDashboard();
+}
+function toggleTodo(id) {
+  const t = state.todos.find(x=>x.id===id);
+  if(t) { t.done = !t.done; save('todos'); renderTodos(); updateBadges(); renderDashboard(); }
+}
+function deleteTodo(id) {
+  state.todos = state.todos.filter(x=>x.id!==id);
+  save('todos');
+  renderTodos(); updateBadges(); renderDashboard();
+}
+function filterTodo(f, btn) {
+  todoFilter = f;
+  document.querySelectorAll('#page-todo .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTodos();
+}
+function clearDone() {
+  state.todos = state.todos.filter(x=>!x.done);
+  save('todos');
+  renderTodos(); updateBadges();
+}
+function renderTodos() {
+  let filtered = state.todos;
+  if(todoFilter !== 'all' && todoFilter !== 'done') filtered = filtered.filter(x=>x.tag===todoFilter);
+  if(todoFilter === 'done') filtered = filtered.filter(x=>x.done);
+  else filtered = filtered.filter(x=>todoFilter==='all' || x.tag===todoFilter);
+
+  const list = document.getElementById('mainTodoList');
+  if(!list) return;
+  if(filtered.length === 0) { list.innerHTML = '<div class="empty-state">ยังไม่มี task ✦</div>'; } else {
+    list.innerHTML = filtered.map(t => `
+      <li class="todo-item ${t.done?'done':''}" style="${t.priority==='high'?'border-left:3px solid #000;':''}">
+        <div class="todo-check ${t.done?'checked':''}" onclick="toggleTodo(${t.id})">${t.done?'✓':''}</div>
+        <span class="todo-text">${escHtml(t.text)}</span>
+        <span class="todo-tag tag-${t.tag}">${t.tag}</span>
+        <button class="todo-delete" onclick="deleteTodo(${t.id})">✕</button>
+      </li>`).join('');
+  }
+  const done = state.todos.filter(x=>x.done).length;
+  document.getElementById('todoCount').textContent = `${filtered.length} tasks shown • ${done} completed`;
+}
+function updateBadges() {
+  const left = state.todos.filter(x=>!x.done).length;
+  if(document.getElementById('badge-todo')) document.getElementById('badge-todo').textContent = left;
+  if(document.getElementById('badge-notes')) document.getElementById('badge-notes').textContent = state.notes.length;
+  const done = state.todos.filter(x=>x.done).length;
+  if(document.getElementById('stat-todo-done')) document.getElementById('stat-todo-done').textContent = done;
+  if(document.getElementById('stat-todo-left')) document.getElementById('stat-todo-left').textContent = left;
+  if(document.getElementById('stat-notes')) document.getElementById('stat-notes').textContent = state.notes.length;
+  const topicsDone = Object.values(state.posnProgress).filter(x=>x).length;
+  if(document.getElementById('stat-topics')) document.getElementById('stat-topics').textContent = topicsDone;
+}
+
+// ============ CALENDAR ============
+const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+let selectedCalDay = null;
+function renderCalendar() {
+  document.getElementById('calMonthTitle').textContent = monthNames[state.calMonth] + ' ' + state.calYear;
+  const grid = document.getElementById('calGrid');
+  const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  let html = days.map(d=>`<div class="cal-header">${d}</div>`).join('');
+  const first = new Date(state.calYear, state.calMonth, 1).getDay();
+  const total = new Date(state.calYear, state.calMonth+1, 0).getDate();
+  const today = new Date();
+  for(let i=0; i<first; i++) {
+    const d = new Date(state.calYear, state.calMonth, 0-first+1+i+1);
+    html += `<div class="cal-day other-month"><div class="cal-day-num">${d.getDate()}</div></div>`;
+  }
+  for(let d=1; d<=total; d++) {
+    const key = `${state.calYear}-${String(state.calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const isToday = today.getFullYear()===state.calYear && today.getMonth()===state.calMonth && today.getDate()===d;
+    const inRange = state.calYear===2025 && ((state.calMonth===3 && d>=1)||(state.calMonth>3 && state.calMonth<7)||(state.calMonth===7 && d<=30));
+    const evs = state.calEvents[key] || [];
+    const evHtml = evs.map(e=>`<div class="cal-event ${e.type}" title="${e.name}">${e.name}</div>`).join('');
+    html += `<div class="cal-day ${isToday?'today':''} ${inRange&&!isToday?'in-range':''}" onclick="selectCalDay('${key}',${d})">
+      <div class="cal-day-num">${d}</div>${evHtml}
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+function changeMonth(dir) {
+  state.calMonth += dir;
+  if(state.calMonth > 11) { state.calMonth = 0; state.calYear++; }
+  if(state.calMonth < 0) { state.calMonth = 11; state.calYear--; }
+  renderCalendar();
+}
+function selectCalDay(key, d) {
+  selectedCalDay = key;
+  const form = document.getElementById('calAddForm');
+  form.classList.add('open');
+  document.getElementById('calAddTitle').textContent = `ADD EVENT — ${d} ${monthNames[state.calMonth]}`;
+  document.getElementById('calEventName').focus();
+}
+function addCalEvent() {
+  const name = document.getElementById('calEventName').value.trim();
+  if(!name||!selectedCalDay) return;
+  if(!state.calEvents[selectedCalDay]) state.calEvents[selectedCalDay] = [];
+  state.calEvents[selectedCalDay].push({ name, type: document.getElementById('calEventType').value });
+  save('calEvents');
+  document.getElementById('calEventName').value = '';
+  renderCalendar();
+}
+function closeCalForm() { document.getElementById('calAddForm').classList.remove('open'); }
+
+// ============ POSN ============
+const posnCS = [
+  { title: 'PYTHON BASICS', sub: 'วิทยาการคำนวณ', topics: [
+    'การกำหนดค่าตัวแปร (=)',
+    'นิพจน์คณิตศาสตร์ (+ - * / ** //)',
+    'นิพจน์เปรียบเทียบ (== != < <= > >=)',
+    'if-then-else เดี่ยว',
+    'if ซ้อน if',
+    'เงื่อนไข not, and, or',
+    'ลูป while',
+    'ผสมผสาน if + while',
+    'ฟังก์ชัน (def)',
+  ]},
+  { title: 'ALGORITHM', sub: 'การคิดเชิงวิเคราะห์', topics: [
+    'กำหนดวิธีการคิด / คำนวณ',
+    'วิเคราะห์จำนวนครั้งของการทำงาน',
+    'วิเคราะห์ถ้าเปลี่ยนวิธีคิดในบางจุด',
+    'Trace โปรแกรม',
+    'แก้ปัญหาตามขั้นตอนที่กำหนด',
+  ]},
+];
+const posnMath = [
+  { title: 'จำนวนและพีชคณิต', sub: 'Mathematics Group 1', topics: [
+    'จำนวนจริงและสมบัติ',
+    'ค่าสัมบูรณ์ของจำนวนจริง',
+    'จำนวนจริงในรูปกรณฑ์และเลขยกกำลัง',
+    'จำนวนตรรกยะ / อตรรกยะ',
+    'รากที่สองและรากที่สาม',
+    'เศษส่วนและสัดส่วน (Fractions)',
+  ]},
+  { title: 'ทฤษฎีจำนวนเบื้องต้น', sub: 'Mathematics Group 1', topics: [
+    'การหารจำนวนเต็ม (ขั้นตอนวิธีการหาร)',
+    'จำนวนเฉพาะ / จำนวนประกอบ',
+    'คุณสมบัติของจำนวนเฉพาะ',
+    'เลขคณิตมอดูลาร์ (Modular Arithmetic)',
+    'การบวก ลบ คูณ (mod)',
+  ]},
+  { title: 'ความสัมพันธ์และฟังก์ชัน', sub: 'Mathematics Group 1', topics: [
+    'พหุนาม: บวก ลบ คูณ หาร',
+    'การแยกตัวประกอบพหุนาม',
+    'ความสัมพันธ์ ฟังก์ชัน กราฟ',
+    'คุณสมบัติ: สะท้อน สมมาตร ถ่ายทอด',
+    'ฟังก์ชันเอกซ์โพเนนเชียล',
+    'ฟังก์ชันลอการิทึม',
+    'กราฟของฟังก์ชัน',
+  ]},
+  { title: 'สมการและอสมการ', sub: 'Mathematics Group 1', topics: [
+    'อสมการเชิงเส้นตัวแปรเดียว',
+    'สมการกำลังสองตัวแปรเดียว',
+    'ระบบสมการเชิงเส้นสองตัวแปร',
+    'สมการและอสมการพหุนาม',
+  ]},
+];
+
+function renderPosn() {
+  renderPosnSubject('posn-cs', posnCS);
+  renderPosnSubject('posn-math', posnMath);
+}
+function renderPosnSubject(containerId, subjects) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = subjects.map((sub, si) => {
+    const doneCount = sub.topics.filter((t,ti) => state.posnProgress[`${containerId}-${si}-${ti}`]).length;
+    const pct = Math.round((doneCount / sub.topics.length) * 100);
+    return `<div class="subject-card">
+      <div class="subject-header">
+        <div><h3>${sub.title}</h3><div class="sub-sub">${sub.sub}</div></div>
+        <div style="text-align:right;font-family:'Space Mono',monospace;font-size:11px;">${doneCount}/${sub.topics.length}</div>
+      </div>
+      <div class="subject-progress-bar"><div class="subject-progress-fill" style="width:${pct}%"></div></div>
+      <div class="topic-list">
+        ${sub.topics.map((t,ti) => {
+          const key = `${containerId}-${si}-${ti}`;
+          const done = state.posnProgress[key];
+          return `<div class="topic-item" onclick="toggleTopic('${key}')">
+            <div class="topic-check ${done?'done':''}">${done?'✓':''}</div>
+            <span class="topic-text ${done?'done':''}">${t}</span>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+function toggleTopic(key) {
+  state.posnProgress[key] = !state.posnProgress[key];
+  save('posnProgress');
+  renderPosn();
+  updateBadges();
+}
+function showPosnTab(tab, btn) {
+  document.getElementById('posn-cs').style.display = tab==='cs'?'grid':'none';
+  document.getElementById('posn-math').style.display = tab==='math'?'grid':'none';
+  document.querySelectorAll('#page-posn .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ============ NOTES ============
+function addNote() {
+  const note = { id: Date.now(), title: 'Note ' + (state.notes.length+1), body: '', tag: 'general', link: '', date: new Date().toISOString() };
+  state.notes.unshift(note);
+  save('notes');
+  state.currentNote = note.id;
+  renderNotes();
+  updateBadges();
+}
+function renderNotes() {
+  const list = document.getElementById('notesList');
+  if(!list) return;
+  if(state.notes.length === 0) { list.innerHTML = '<div class="empty-state" style="padding:20px;text-align:center;font-size:10px;color:#8a8a88;">กด + NEW NOTE<br>เพื่อเริ่มบันทึก</div>'; }
+  else list.innerHTML = state.notes.map(n => `
+    <div class="note-item ${n.id===state.currentNote?'active':''}" onclick="selectNote(${n.id})">
+      <div class="note-item-title">${escHtml(n.title)||'Untitled'}</div>
+      <div class="note-item-preview">${escHtml(n.body.slice(0,40))||'...'}</div>
+      <div class="note-item-tag">${n.tag}${n.link?' • 🔗':''}</div>
+    </div>`).join('');
+  document.getElementById('noteCountDisplay').textContent = state.notes.length;
+
+  if(state.currentNote) {
+    const n = state.notes.find(x=>x.id===state.currentNote);
+    if(n) {
+      document.getElementById('noteTitleInput').value = n.title;
+      document.getElementById('noteBody').value = n.body;
+      document.getElementById('noteTagSelect').value = n.tag;
+      document.getElementById('noteLinkInput').value = n.link || '';
+      updateWordCount();
+    }
+  }
+}
+function selectNote(id) {
+  state.currentNote = id;
+  renderNotes();
+}
+function saveCurrentNote() {
+  if(!state.currentNote) return;
+  const n = state.notes.find(x=>x.id===state.currentNote);
+  if(!n) return;
+  n.title = document.getElementById('noteTitleInput').value;
+  n.body = document.getElementById('noteBody').value;
+  n.tag = document.getElementById('noteTagSelect').value;
+  n.link = document.getElementById('noteLinkInput').value;
+  save('notes');
+  updateWordCount();
+  document.getElementById('noteSavedAt').textContent = 'Saved ' + new Date().toLocaleTimeString();
+  const listItem = document.querySelector('.note-item.active .note-item-title');
+  if(listItem) listItem.textContent = n.title || 'Untitled';
+}
+function deleteCurrentNote() {
+  if(!state.currentNote) return;
+  if(!confirm('ลบ note นี้?')) return;
+  state.notes = state.notes.filter(x=>x.id!==state.currentNote);
+  state.currentNote = state.notes[0]?.id || null;
+  save('notes');
+  renderNotes(); updateBadges();
+}
+function openNoteLink() {
+  const url = document.getElementById('noteLinkInput').value;
+  if(url) window.open(url.startsWith('http')?url:'https://'+url, '_blank');
+}
+function updateWordCount() {
+  const words = (document.getElementById('noteBody').value.match(/\S+/g)||[]).length;
+  document.getElementById('noteWordCount').textContent = words + ' words';
+}
+
+// ============ EXERCISE ============
+function renderExercise() {
+  const plan = document.getElementById('exercisePlan');
+  const days = Object.entries(state.exPlan);
+  plan.innerHTML = days.map(([day, info]) => {
+    const maxCal = 400;
+    const w = Math.min(100, (info.cal/maxCal)*100);
+    return `<div class="exercise-day-row">
+      <div class="ex-day-name">${day}</div>
+      <div style="flex:1;">
+        <div style="font-size:11px;margin-bottom:4px;">${info.name}</div>
+        <div class="ex-day-bar-wrap"><div class="ex-day-bar" style="width:${info.done?w:0}%"></div></div>
+      </div>
+      <div class="ex-day-val">${info.cal} kcal</div>
+      <div class="ex-check" onclick="toggleExDay('${day}')">${info.done?'✅':'⬜'}</div>
+    </div>`;
+  }).join('');
+
+  const bmi = (state.weight / (1.70 * 1.70)).toFixed(1);
+  if(document.getElementById('weightDisplay')) document.getElementById('weightDisplay').textContent = state.weight;
+  if(document.getElementById('bmiDisplay')) document.getElementById('bmiDisplay').textContent = bmi;
+
+  const logList = document.getElementById('exLogList');
+  if(logList) {
+    const today = new Date().toDateString();
+    const todayLogs = state.exLogs.filter(l => new Date(l.date).toDateString() === today);
+    if(todayLogs.length === 0) logList.innerHTML = '<div class="empty-state">ยังไม่มีการบันทึกวันนี้</div>';
+    else logList.innerHTML = todayLogs.map(l => `
+      <li class="todo-item">
+        <span style="font-size:13px;">💪</span>
+        <span class="todo-text">${escHtml(l.text)}</span>
+        <span class="todo-tag tag-exercise">${l.type}</span>
+        <span class="todo-tag" style="background:var(--gray-100);color:var(--gray-600);">${l.duration} min</span>
+      </li>`).join('');
+  }
+}
+function toggleExDay(day) {
+  state.exPlan[day].done = !state.exPlan[day].done;
+  save('exPlan');
+  renderExercise();
+}
+function updateWeight() {
+  const v = parseFloat(document.getElementById('weightInput').value);
+  if(v && v > 30 && v < 300) { state.weight = v; save('weight'); renderExercise(); }
+}
+function logExercise() {
+  const text = document.getElementById('exLogInput').value.trim();
+  if(!text) return;
+  state.exLogs.push({ text, type: document.getElementById('exType').value, duration: document.getElementById('exDuration').value || 0, date: new Date().toISOString() });
+  save('exLogs');
+  document.getElementById('exLogInput').value = '';
+  document.getElementById('exDuration').value = '';
+  renderExercise();
+}
+
+// ============ HABIT ============
+function addHabit() {
+  const text = document.getElementById('habitInput').value.trim();
+  if(!text) return;
+  state.habits.push(text);
+  save('habits');
+  document.getElementById('habitInput').value = '';
+  renderHabitGrid();
+}
+function renderHabitGrid() {
+  const container = document.getElementById('habitGridContainer');
+  if(!container) return;
+  const days = 30;
+  let html = '<div class="habit-grid">';
+  // Header row
+  html += '<div class="habit-header-row"><div class="habit-name-header"></div>';
+  for(let d=1;d<=days;d++) html += `<div class="habit-date-label">${d}</div>`;
+  html += '</div>';
+
+  state.habits.forEach((h,hi) => {
+    html += `<div class="habit-row">
+      <div class="habit-name" title="${escHtml(h)}">${escHtml(h)}</div>`;
+    for(let d=1;d<=days;d++) {
+      const key = `${hi}-apr-${d}`;
+      const done = state.habitDone[key];
+      html += `<div class="habit-cell ${done?'done':''}" onclick="toggleHabit('${key}')">${done?'✓':''}</div>`;
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+function toggleHabit(key) {
+  state.habitDone[key] = !state.habitDone[key];
+  save('habitDone');
+  renderHabitGrid();
+  renderDashboard();
+}
+
+// ============ WATER ============
+function renderWater() {
+  const tracker = document.getElementById('waterTracker');
+  if(!tracker) return;
+  // Reset water daily
+  const today = new Date().toDateString();
+  const savedDate = localStorage.getItem('waterDate');
+  if(savedDate !== today) { state.water = 0; save('water'); localStorage.setItem('waterDate', today); }
+  tracker.innerHTML = '';
+  for(let i=0;i<8;i++) {
+    const cup = document.createElement('div');
+    cup.className = 'water-cup ' + (i < state.water ? 'filled':'');
+    cup.textContent = '🥤';
+    cup.title = `Cup ${i+1}`;
+    cup.onclick = () => { state.water = (state.water === i+1) ? i : i+1; save('water'); renderWater(); };
+    tracker.appendChild(cup);
+  }
+  document.getElementById('waterCount').textContent = `${state.water} / 8 cups`;
+}
+
+// ============ DASHBOARD ============
+function renderDashboard() {
+  // Tasks
+  const today = new Date().toDateString();
+  const dashList = document.getElementById('dash-todo-list');
+  if(dashList) {
+    const todayTodos = state.todos.filter(t => !t.done).slice(0,5);
+    if(todayTodos.length === 0) dashList.innerHTML = '<div class="empty-state">ยังไม่มี task ✦</div>';
+    else dashList.innerHTML = todayTodos.map(t => `
+      <li class="todo-item ${t.done?'done':''}">
+        <div class="todo-check ${t.done?'checked':''}" onclick="toggleTodo(${t.id})">${t.done?'✓':''}</div>
+        <span class="todo-text" style="font-size:12px;">${escHtml(t.text)}</span>
+        <span class="todo-tag tag-${t.tag}">${t.tag}</span>
+      </li>`).join('');
+  }
+  renderWater();
+  updateBadges();
+
+  // Today habits
+  const habDiv = document.getElementById('dash-habit-today');
+  if(habDiv) {
+    const d = new Date().getDate();
+    habDiv.innerHTML = state.habits.map((h,hi) => {
+      const key = `${hi}-apr-${d}`;
+      const done = state.habitDone[key];
+      return `<div onclick="quickHabit('${key}')" style="cursor:pointer;padding:8px 14px;border:var(--border);border-radius:20px;font-size:11px;background:${done?'var(--black)':'var(--white)'};color:${done?'var(--white)':'var(--black)'};">${done?'✓ ':''} ${escHtml(h)}</div>`;
+    }).join('');
+  }
+}
+function quickHabit(key) {
+  state.habitDone[key] = !state.habitDone[key];
+  save('habitDone');
+  renderDashboard();
+}
+
+// ============ POMODORO ============
+let focusInterval = null;
+let focusSeconds = 25*60;
+let focusRunning = false;
+let focusSessionCount = 1;
+function toggleFocusPanel() {
+  document.getElementById('focusPanel').classList.toggle('open');
+}
+function setFocusMode(min, mode, btn) {
+  if(focusRunning) return;
+  focusSeconds = min * 60;
+  updateFocusDisplay();
+  document.querySelectorAll('.focus-mode-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function toggleFocus() {
+  focusRunning = !focusRunning;
+  document.getElementById('focusStartBtn').textContent = focusRunning ? 'PAUSE':'START';
+  if(focusRunning) {
+    focusInterval = setInterval(() => {
+      focusSeconds--;
+      if(focusSeconds <= 0) {
+        focusSeconds = 0; clearInterval(focusInterval); focusRunning = false;
+        document.getElementById('focusStartBtn').textContent = 'START';
+        focusSessionCount++;
+        document.getElementById('focusSession').textContent = `Session #${focusSessionCount}`;
+        // Simple beep via AudioContext
+        try {
+          const ctx = new AudioContext();
+          const osc = ctx.createOscillator();
+          osc.connect(ctx.destination);
+          osc.frequency.value = 440;
+          osc.start();
+          setTimeout(()=>osc.stop(), 600);
+        } catch(e){}
+      }
+      updateFocusDisplay();
+    }, 1000);
+  } else {
+    clearInterval(focusInterval);
+  }
+}
+function resetFocus() {
+  clearInterval(focusInterval); focusRunning = false;
+  document.getElementById('focusStartBtn').textContent = 'START';
+  const activeModeBtn = document.querySelector('.focus-mode-btn.active');
+  const min = parseInt(activeModeBtn?.textContent) || 25;
+  const map = {'WORK':25,'BREAK':5,'LONG':15};
+  focusSeconds = (map[activeModeBtn?.textContent] || 25) * 60;
+  updateFocusDisplay();
+}
+function updateFocusDisplay() {
+  const m = String(Math.floor(focusSeconds/60)).padStart(2,'0');
+  const s = String(focusSeconds%60).padStart(2,'0');
+  document.getElementById('focusTime').textContent = `${m}:${s}`;
+}
+
+// ============ UTIL ============
+function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ============ INIT ============
+renderDashboard();
+updateBadges();
+renderTodos();
+</script>
+</body>
+</html>
